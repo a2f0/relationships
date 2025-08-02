@@ -100,8 +100,9 @@ const brother = relationshipCategories.personal.family.immediate.siblings.brothe
 ## File Structure
 
 - `relationship_categories.ts` - Main TypeScript relationship categories object and helper functions
+- `relationship_categories.test.ts` - Comprehensive unit tests using Vitest
 - `example_usage.ts` - Practical TypeScript examples of how to use the structure
-- `tsconfig.json` - TypeScript configuration
+- `tsconfig.json` - TypeScript configuration (extends @tsconfig/strictest)
 - `README.md` - This documentation file
 
 ## Building and Running
@@ -109,24 +110,40 @@ const brother = relationshipCategories.personal.family.immediate.siblings.brothe
 ### TypeScript Development
 
 ```bash
-# Install TypeScript if not already installed
-npm install -g typescript
+# Install dependencies
+npm install
 
 # Compile TypeScript to JavaScript
-tsc
+npm run build
 
 # Run the TypeScript example
-npx ts-node example_usage.ts
+npm run dev
+
+# Run the compiled JavaScript example
+npm start
+```
+
+### Testing
+
+```bash
+# Run tests in watch mode
+npm test
+
+# Run tests once
+npm run test:run
+
+# Type checking
+npm run type-check
 ```
 
 ### JavaScript Usage
 
 ```bash
 # Compile TypeScript to JavaScript
-tsc
+npm run build
 
 # Run the JavaScript example
-node dist/example_usage.js
+npm start
 ```
 
 ## Key Features
@@ -137,6 +154,7 @@ node dist/example_usage.js
 4. **Flexible Access**: Helper functions allow easy traversal and filtering
 5. **Extensible**: Easy to add new categories or relationships
 6. **IntelliSense Support**: Full IDE support with autocomplete and type hints
+7. **Comprehensive Testing**: Full unit test coverage using Vitest
 
 ## Type Definitions
 
@@ -146,6 +164,22 @@ The project includes comprehensive TypeScript interfaces:
 - `Person` - Interface for a person with relationships
 - `Relationship` - Interface for individual relationships
 - `RelationshipCategory` - Generic interface for category traversal
+
+## Testing
+
+The project includes comprehensive unit tests covering:
+
+- ✅ **Object Structure**: Testing all relationship category structures
+- ✅ **Helper Functions**: Testing `getAllRelationships`, `getRelationshipsByPath`, `addRelationship`, `findRelationshipsByCategory`
+- ✅ **Type Safety**: Testing type-safe relationship access
+- ✅ **Edge Cases**: Testing error handling and edge cases
+- ✅ **Person Management**: Testing person creation and relationship management
+
+Run tests with:
+```bash
+npm test        # Watch mode
+npm run test:run # Run once
+```
 
 ## Adding New Relationships
 
