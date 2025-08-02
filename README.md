@@ -104,6 +104,7 @@ const brother = relationshipCategories.personal.family.immediate.siblings.brothe
 - `relationship_categories.test.ts` - Comprehensive unit tests using Vitest
 - `example_usage.ts` - Practical TypeScript examples (executable with shebang)
 - `tsconfig.json` - TypeScript configuration (extends @tsconfig/strictest)
+- `.github/workflows/` - GitHub Actions CI/CD workflows
 - `README.md` - This documentation file
 
 ## Building and Running
@@ -150,6 +151,29 @@ npm run build
 npm start
 ```
 
+## CI/CD
+
+This project includes a GitHub Actions workflow for continuous integration:
+
+### Workflow
+
+- **`.github/workflows/ci.yml`** - CI pipeline that builds, tests, runs examples, and performs security checks
+
+### What Gets Tested
+
+✅ **Type Checking**: Ensures TypeScript compiles with strictest settings
+✅ **Build Process**: Compiles TypeScript to JavaScript
+✅ **Unit Tests**: Runs all 26 tests with Vitest
+✅ **Examples**: Executes TypeScript and JavaScript examples
+✅ **Executable**: Runs the shebang executable example
+✅ **Security**: Audits dependencies for vulnerabilities
+✅ **Build Verification**: Verifies compiled files and type definitions
+
+### Triggered On
+
+- Push to `main` or `develop` branches
+- Pull requests to `main` branch
+
 ## Key Features
 
 1. **Type Safety**: Full TypeScript support with interfaces and type checking
@@ -160,6 +184,7 @@ npm start
 6. **IntelliSense Support**: Full IDE support with autocomplete and type hints
 7. **Comprehensive Testing**: Full unit test coverage using Vitest
 8. **Executable Examples**: Direct execution of TypeScript files with tsx
+9. **CI/CD Pipeline**: Automated testing and deployment with GitHub Actions
 
 ## Type Definitions
 
