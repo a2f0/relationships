@@ -171,8 +171,8 @@ This project includes a GitHub Actions workflow for continuous integration:
 
 ### Triggered On
 
-- Push to `main` or `develop` branches
-- Pull requests to `main` branch
+- All pushes to any branch
+- All pull requests to any branch
 
 ## Key Features
 
