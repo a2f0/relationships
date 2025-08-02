@@ -1,45 +1,12 @@
 # Hierarchical Relationship Categories
 
-This project provides a comprehensive TypeScript/JavaScript object structure that represents hierarchical categories of relationships for a person, including both personal relationships (family, friends) and business relationships (service providers, professional contacts).
+This project provides an object structure that represents hierarchical categories of relationships for a person, including both personal relationships (family, friends) and business relationships (service providers, professional contacts).
 
-## Structure Overview
-
-The relationship categories are organized into four main areas:
-
-### 1. Personal Relationships
-- **Family**: Immediate family (spouse, children, parents, siblings) and extended family (grandparents, aunts/uncles, cousins, in-laws)
-- **Friends**: Close friends and social acquaintances
-
-### 2. Professional Relationships
-- **Work**: Supervisors, subordinates, and peers
-- **Business**: Clients, partners, and vendors
-
-### 3. Service Providers
-- **Health**: Medical professionals (doctors, dentists, therapists) and wellness providers
-- **Legal**: Lawyers, attorneys, paralegals
-- **Financial**: Accountants, financial advisors, bankers
-- **Home**: Realtors, contractors, maintenance workers
-- **Education**: Teachers, professors, tutors
-- **Personal**: Stylists, photographers, personal assistants
-
-### 4. Community
-- **Religious**: Pastors, priests, congregation members
-- **Civic**: Elected officials, community leaders
-- **Social**: Club members, alumni
-
-## TypeScript Usage
+## Usage
 
 ### Basic Usage
 
 ```typescript
-import { 
-  relationshipCategories, 
-  getAllRelationships, 
-  getRelationshipsByPath,
-  Person,
-  Relationship
-} from './relationship_categories';
-
 // Access specific relationships with type safety
 const dentist: string = relationshipCategories.serviceProviders.health.medical.dentist;
 const brother: string = relationshipCategories.personal.family.immediate.siblings.brother;
