@@ -115,8 +115,8 @@ const brother = relationshipCategories.personal.family.immediate.siblings.brothe
 # Install dependencies
 npm install
 
-# Compile TypeScript to JavaScript
-npm run build
+# Type checking
+npm run type-check
 
 # Run the TypeScript example with tsx
 npm run dev
@@ -124,8 +124,8 @@ npm run dev
 # Run the executable TypeScript file directly
 ./example_usage.ts
 
-# Run the compiled JavaScript example
-npm start
+# Run tests
+npm test
 ```
 
 ### Testing
@@ -141,16 +141,6 @@ npm run test:run
 npm run type-check
 ```
 
-### JavaScript Usage
-
-```bash
-# Compile TypeScript to JavaScript
-npm run build
-
-# Run the JavaScript example
-npm start
-```
-
 ## CI/CD
 
 This project includes a GitHub Actions workflow for continuous integration:
@@ -162,12 +152,10 @@ This project includes a GitHub Actions workflow for continuous integration:
 ### What Gets Tested
 
 ✅ **Type Checking**: Ensures TypeScript compiles with strictest settings
-✅ **Build Process**: Compiles TypeScript to JavaScript
 ✅ **Unit Tests**: Runs all 26 tests with Vitest
-✅ **Examples**: Executes TypeScript and JavaScript examples
+✅ **TypeScript Examples**: Executes TypeScript examples with tsx
 ✅ **Executable**: Runs the shebang executable example
 ✅ **Security**: Audits dependencies for vulnerabilities
-✅ **Build Verification**: Verifies compiled files and type definitions
 
 ### Triggered On
 
@@ -184,7 +172,7 @@ This project includes a GitHub Actions workflow for continuous integration:
 6. **IntelliSense Support**: Full IDE support with autocomplete and type hints
 7. **Comprehensive Testing**: Full unit test coverage using Vitest
 8. **Executable Examples**: Direct execution of TypeScript files with tsx
-9. **CI/CD Pipeline**: Automated testing and deployment with GitHub Actions
+9. **CI/CD Pipeline**: Automated testing with GitHub Actions
 
 ## Type Definitions
 

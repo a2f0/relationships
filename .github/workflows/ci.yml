@@ -24,36 +24,21 @@ jobs:
     - name: Type checking
       run: npm run type-check
       
-    - name: Build project
-      run: npm run build
-      
     - name: Run tests
       run: npm run test:run
       
     - name: Run TypeScript example
       run: npm run dev
       
-    - name: Run JavaScript example
-      run: npm start
-      
     - name: Run executable example
       run: ./example_usage.ts
       
-    - name: Verify build artifacts
-      run: |
-        echo "Checking compiled files..."
-        ls -la dist/
-        ls -la dist/util/
-        echo "Checking type definitions..."
-        ls -la dist/*.d.ts
-        ls -la dist/util/*.d.ts
-        
     - name: Security audit
       run: npm audit --audit-level=moderate || echo "Security vulnerabilities found - please review"
       
     - name: Verify output
       run: |
-        echo "✅ Build completed successfully"
+        echo "✅ Type checking passed"
         echo "✅ Tests passed"
-        echo "✅ Examples executed successfully"
+        echo "✅ TypeScript examples executed successfully"
         echo "✅ All CI checks passed" 

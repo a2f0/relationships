@@ -6,7 +6,6 @@
   "types": "dist/relationship_categories.d.ts",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/example_usage.js",
     "dev": "tsx example_usage.ts",
     "test": "vitest",
     "test:run": "vitest run",
