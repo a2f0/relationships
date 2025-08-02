@@ -8,7 +8,7 @@ import {
   getRelationshipsByPath,
   addRelationship,
   findRelationshipsByCategory
-} from './util/relationship-utils';
+} from './util/relationship';
 
 // Example 1: Adding a person with multiple relationships
 const person: Person = {

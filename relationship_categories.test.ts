@@ -8,7 +8,7 @@ import {
   getRelationshipsByPath,
   addRelationship,
   findRelationshipsByCategory
-} from './util/relationship-utils';
+} from './util/relationship';
 
 describe('Relationship Categories', () => {
   let person: Person;
