@@ -85,28 +85,6 @@ const familyMembers = findRelationshipsByCategory(person, 'personal.family');
 const serviceProviders = findRelationshipsByCategory(person, 'serviceProviders');
 ```
 
-## JavaScript Usage
-
-If you prefer to use JavaScript, you can import the compiled JavaScript files:
-
-```javascript
-const { relationshipCategories, getAllRelationships, getRelationshipsByPath } = require('./dist/relationship_categories.js');
-
-// Access specific relationships
-const dentist = relationshipCategories.serviceProviders.health.medical.dentist;
-const brother = relationshipCategories.personal.family.immediate.siblings.brother;
-```
-
-## File Structure
-
-- `relationship_categories.ts` - Main TypeScript relationship categories object and helper functions
-- `util/relationship.ts` - Utility functions for relationship management
-- `relationship_categories.test.ts` - Comprehensive unit tests using Vitest
-- `example_usage.ts` - Practical TypeScript examples (executable with shebang)
-- `tsconfig.json` - TypeScript configuration (extends @tsconfig/strictest)
-- `.github/workflows/` - GitHub Actions CI/CD workflows
-- `README.md` - This documentation file
-
 ## Building and Running
 
 ### TypeScript Development
@@ -141,57 +119,8 @@ npm run test:run
 npm run type-check
 ```
 
-## CI/CD
-
-This project includes a GitHub Actions workflow for continuous integration:
-
-### Workflow
-
-- **`.github/workflows/ci.yml`** - CI pipeline that builds, tests, runs examples, and performs security checks
-
-### What Gets Tested
-
-✅ **Type Checking**: Ensures TypeScript compiles with strictest settings
-✅ **Unit Tests**: Runs all 26 tests with Vitest
-✅ **TypeScript Examples**: Executes TypeScript examples with tsx
-✅ **Executable**: Runs the shebang executable example
-✅ **Security**: Audits dependencies for vulnerabilities
-
-### Triggered On
-
-- All pushes to any branch
-- All pull requests to any branch
-
-## Key Features
-
-1. **Type Safety**: Full TypeScript support with interfaces and type checking
-2. **Hierarchical Organization**: Relationships are organized in a logical hierarchy
-3. **Comprehensive Coverage**: Includes personal, professional, service provider, and community relationships
-4. **Flexible Access**: Helper functions allow easy traversal and filtering
-5. **Extensible**: Easy to add new categories or relationships
-6. **IntelliSense Support**: Full IDE support with autocomplete and type hints
-7. **Comprehensive Testing**: Full unit test coverage using Vitest
-8. **Executable Examples**: Direct execution of TypeScript files with tsx
-9. **CI/CD Pipeline**: Automated testing with GitHub Actions
-
-## Type Definitions
-
-The project includes comprehensive TypeScript interfaces:
-
-- `RelationshipCategories` - The main structure interface
-- `Person` - Interface for a person with relationships
-- `Relationship` - Interface for individual relationships
-- `RelationshipCategory` - Generic interface for category traversal
 
 ## Testing
-
-The project includes comprehensive unit tests covering:
-
-- ✅ **Object Structure**: Testing all relationship category structures
-- ✅ **Helper Functions**: Testing `getAllRelationships`, `getRelationshipsByPath`, `addRelationship`, `findRelationshipsByCategory`
-- ✅ **Type Safety**: Testing type-safe relationship access
-- ✅ **Edge Cases**: Testing error handling and edge cases
-- ✅ **Person Management**: Testing person creation and relationship management
 
 Run tests with:
 ```bash
