@@ -55,7 +55,7 @@ console.log('\nAll available relationships (first 10):');
 console.log(Object.entries(allRelationships).slice(0, 10));
 
 // Example 5: Adding a new relationship using the helper function
-addRelationship(person, "Bob Builder", "serviceProviders.home.contractor", "serviceProviders.home");
+addRelationship(person, "Bob Builder", "serviceProviders.home.contractor");
 
 console.log('\nJohn\'s relationships:');
 person.relationships.forEach(rel => {
@@ -89,8 +89,8 @@ const createPerson = (name: string): Person => ({
 });
 
 const newPerson = createPerson("Alice Smith");
-addRelationship(newPerson, "Dr. Johnson", "serviceProviders.health.medical.doctor", "serviceProviders.health.medical");
-addRelationship(newPerson, "Tom Smith", "personal.family.immediate.siblings.brother", "personal.family.immediate.siblings");
+addRelationship(newPerson, "Dr. Johnson", "serviceProviders.health.medical.doctor");
+addRelationship(newPerson, "Tom Smith", "personal.family.immediate.siblings.brother");
 
 console.log('\nNew person created:');
 console.log(`${newPerson.name}'s relationships:`);

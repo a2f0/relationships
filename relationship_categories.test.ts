@@ -147,47 +147,37 @@ describe('Relationship Categories', () => {
 
   describe('addRelationship', () => {
     it('should add a new relationship successfully', () => {
-      const initialCount = person.relationships.length;
-      const success = addRelationship(person, "Bob Builder", "serviceProviders.home.contractor", "serviceProviders.home");
-      
+      const person: Person = { name: "Test Person", relationships: [] };
+      const success = addRelationship(person, "Bob Builder", "serviceProviders.home.contractor");
       expect(success).toBe(true);
-      expect(person.relationships.length).toBe(initialCount + 1);
-      
-      const newRelationship = person.relationships[person.relationships.length - 1];
-      expect(newRelationship).toBeDefined();
-      if (newRelationship) {
-        expect(newRelationship.personName).toBe("Bob Builder");
-        expect(newRelationship.relationship).toBe("Contractor");
-        expect(newRelationship.category).toBe("serviceProviders.home");
-      }
+      expect(person.relationships).toHaveLength(1);
+      expect(person.relationships[0]).toEqual({
+        personName: "Bob Builder",
+        relationship: "Contractor",
+        category: "serviceProviders.home"
+      });
     });
 
     it('should return false for invalid relationship path', () => {
-      const initialCount = person.relationships.length;
-      const success = addRelationship(person, "Invalid Person", "invalid.path", "invalid.category");
-      
+      const person: Person = { name: "Test Person", relationships: [] };
+      const success = addRelationship(person, "Invalid Person", "invalid.path");
       expect(success).toBe(false);
-      expect(person.relationships.length).toBe(initialCount);
+      expect(person.relationships).toHaveLength(0);
     });
 
     it('should add multiple relationships', () => {
-      const initialCount = person.relationships.length;
+      const person: Person = { name: "Test Person", relationships: [] };
+      addRelationship(person, "Dr. Johnson", "serviceProviders.health.medical.doctor");
+      addRelationship(person, "Tom Smith", "personal.family.immediate.siblings.brother");
+      expect(person.relationships).toHaveLength(2);
       
-      addRelationship(person, "Dr. Johnson", "serviceProviders.health.medical.doctor", "serviceProviders.health.medical");
-      addRelationship(person, "Tom Smith", "personal.family.immediate.siblings.brother", "personal.family.immediate.siblings");
-      
-      expect(person.relationships.length).toBe(initialCount + 2);
-      
-      const doctorRelationship = person.relationships.find(r => r.personName === "Dr. Johnson");
-      const brotherRelationship = person.relationships.find(r => r.personName === "Tom Smith");
-      
-      expect(doctorRelationship).toBeDefined();
-      if (doctorRelationship) {
-        expect(doctorRelationship.relationship).toBe("Doctor");
-      }
-      expect(brotherRelationship).toBeDefined();
-      if (brotherRelationship) {
-        expect(brotherRelationship.relationship).toBe("Brother");
+      const firstRelationship = person.relationships[0];
+      const secondRelationship = person.relationships[1];
+      expect(firstRelationship).toBeDefined();
+      expect(secondRelationship).toBeDefined();
+      if (firstRelationship && secondRelationship) {
+        expect(firstRelationship.category).toBe("serviceProviders.health.medical");
+        expect(secondRelationship.category).toBe("personal.family.immediate.siblings");
       }
     });
   });

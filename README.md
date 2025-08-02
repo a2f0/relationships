@@ -77,8 +77,8 @@ const person: Person = {
 ```typescript
 import { addRelationship, findRelationshipsByCategory } from './util/relationship';
 
-// Add a new relationship with type safety
-addRelationship(person, "Bob Builder", "serviceProviders.home.contractor", "serviceProviders.home");
+// Add a new relationship with type safety (category is automatically derived from path)
+addRelationship(person, "Bob Builder", "serviceProviders.home.contractor");
 
 // Find relationships by category
 const familyMembers = findRelationshipsByCategory(person, 'personal.family');

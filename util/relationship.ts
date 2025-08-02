@@ -39,9 +39,13 @@ export function getRelationshipsByPath(categories: any, path: string): any {
 }
 
 // Type-safe function to add a new relationship
-export function addRelationship(person: Person, newPersonName: string, relationshipPath: string, categoryPath: string): boolean {
+export function addRelationship(person: Person, newPersonName: string, relationshipPath: string): boolean {
   const relationship = getRelationshipsByPath(relationshipCategories, relationshipPath);
   if (relationship && typeof relationship === 'string') {
+    // Derive category from relationship path by removing the last token
+    const pathParts = relationshipPath.split('.');
+    const categoryPath = pathParts.slice(0, -1).join('.');
+    
     person.relationships.push({
       personName: newPersonName,
       relationship: relationship,
