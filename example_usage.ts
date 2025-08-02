@@ -1,8 +1,16 @@
 // Example usage of the relationship categories
-const { relationshipCategories, getAllRelationships, getRelationshipsByPath } = require('./relationship_categories.js');
+import { 
+  relationshipCategories, 
+  getAllRelationships, 
+  getRelationshipsByPath,
+  addRelationship,
+  findRelationshipsByCategory,
+  Person,
+  Relationship
+} from './relationship_categories';
 
 // Example 1: Adding a person with multiple relationships
-const person = {
+const person: Person = {
   name: "John Doe",
   relationships: [
     {
@@ -43,26 +51,7 @@ const allRelationships = getAllRelationships(relationshipCategories);
 console.log('\nAll available relationships (first 10):');
 console.log(Object.entries(allRelationships).slice(0, 10));
 
-// Example 5: Function to add a new relationship
-function addRelationship(person, newPersonName, relationshipPath, categoryPath) {
-  const relationship = getRelationshipsByPath(relationshipCategories, relationshipPath);
-  if (relationship) {
-    person.relationships.push({
-      personName: newPersonName,
-      relationship: relationship,
-      category: categoryPath
-    });
-    return true;
-  }
-  return false;
-}
-
-// Example 6: Function to find relationships by category
-function findRelationshipsByCategory(person, categoryPath) {
-  return person.relationships.filter(rel => rel.category.startsWith(categoryPath));
-}
-
-// Example 7: Adding a new relationship
+// Example 5: Adding a new relationship using the helper function
 addRelationship(person, "Bob Builder", "serviceProviders.home.contractor", "serviceProviders.home");
 
 console.log('\nJohn\'s relationships:');
@@ -79,5 +68,29 @@ familyMembers.forEach(rel => {
 console.log('\nJohn\'s service providers:');
 const serviceProviders = findRelationshipsByCategory(person, 'serviceProviders');
 serviceProviders.forEach(rel => {
+  console.log(`${rel.personName}: ${rel.relationship}`);
+});
+
+// Example 6: Type-safe relationship access
+const dentistRelationship: string = relationshipCategories.serviceProviders.health.medical.dentist;
+const brotherRelationship: string = relationshipCategories.personal.family.immediate.siblings.brother;
+
+console.log('\nType-safe relationship access:');
+console.log(`Dentist relationship: ${dentistRelationship}`);
+console.log(`Brother relationship: ${brotherRelationship}`);
+
+// Example 7: Creating a new person with type safety
+const createPerson = (name: string): Person => ({
+  name,
+  relationships: []
+});
+
+const newPerson = createPerson("Alice Smith");
+addRelationship(newPerson, "Dr. Johnson", "serviceProviders.health.medical.doctor", "serviceProviders.health.medical");
+addRelationship(newPerson, "Tom Smith", "personal.family.immediate.siblings.brother", "personal.family.immediate.siblings");
+
+console.log('\nNew person created:');
+console.log(`${newPerson.name}'s relationships:`);
+newPerson.relationships.forEach(rel => {
   console.log(`${rel.personName}: ${rel.relationship}`);
 }); 

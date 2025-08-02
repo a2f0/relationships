@@ -1,0 +1,30 @@
+{
+  "name": "relationship-categories",
+  "version": "1.0.0",
+  "description": "A comprehensive TypeScript/JavaScript object structure that represents hierarchical categories of relationships for a person",
+  "main": "dist/relationship_categories.js",
+  "types": "dist/relationship_categories.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/example_usage.js",
+    "dev": "ts-node example_usage.ts",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "typescript",
+    "relationships",
+    "categories",
+    "hierarchical",
+    "person",
+    "family",
+    "professional",
+    "service-providers"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.0",
+    "typescript": "^5.0.0"
+  }
+}
