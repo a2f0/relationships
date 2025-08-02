@@ -5,8 +5,7 @@ import {
   getRelationshipsByPath,
   addRelationship,
   findRelationshipsByCategory,
-  Person,
-  Relationship
+  Person
 } from './relationship_categories';
 
 // Example 1: Adding a person with multiple relationships
