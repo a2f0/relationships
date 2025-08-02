@@ -12,7 +12,8 @@
     "removeComments": false
   },
   "include": [
-    "*.ts"
+    "*.ts",
+    "util/**/*.ts"
   ],
   "exclude": [
     "node_modules",

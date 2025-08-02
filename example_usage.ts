@@ -1,12 +1,14 @@
 // Example usage of the relationship categories
 import { 
   relationshipCategories, 
+  Person
+} from './relationship_categories';
+import {
   getAllRelationships, 
   getRelationshipsByPath,
   addRelationship,
-  findRelationshipsByCategory,
-  Person
-} from './relationship_categories';
+  findRelationshipsByCategory
+} from './util/relationship-utils';
 
 // Example 1: Adding a person with multiple relationships
 const person: Person = {

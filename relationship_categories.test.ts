@@ -1,12 +1,14 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { 
   relationshipCategories, 
+  Person
+} from './relationship_categories';
+import {
   getAllRelationships, 
   getRelationshipsByPath,
   addRelationship,
-  findRelationshipsByCategory,
-  Person
-} from './relationship_categories';
+  findRelationshipsByCategory
+} from './util/relationship-utils';
 
 describe('Relationship Categories', () => {
   let person: Person;
