@@ -75,7 +75,7 @@ const person: Person = {
 ### Type-Safe Helper Functions
 
 ```typescript
-import { addRelationship, findRelationshipsByCategory } from './relationship_categories';
+import { addRelationship, findRelationshipsByCategory } from './util/relationship';
 
 // Add a new relationship with type safety
 addRelationship(person, "Bob Builder", "serviceProviders.home.contractor", "serviceProviders.home");
@@ -100,8 +100,9 @@ const brother = relationshipCategories.personal.family.immediate.siblings.brothe
 ## File Structure
 
 - `relationship_categories.ts` - Main TypeScript relationship categories object and helper functions
+- `util/relationship.ts` - Utility functions for relationship management
 - `relationship_categories.test.ts` - Comprehensive unit tests using Vitest
-- `example_usage.ts` - Practical TypeScript examples of how to use the structure
+- `example_usage.ts` - Practical TypeScript examples (executable with shebang)
 - `tsconfig.json` - TypeScript configuration (extends @tsconfig/strictest)
 - `README.md` - This documentation file
 
@@ -116,8 +117,11 @@ npm install
 # Compile TypeScript to JavaScript
 npm run build
 
-# Run the TypeScript example
+# Run the TypeScript example with tsx
 npm run dev
+
+# Run the executable TypeScript file directly
+./example_usage.ts
 
 # Run the compiled JavaScript example
 npm start
@@ -155,6 +159,7 @@ npm start
 5. **Extensible**: Easy to add new categories or relationships
 6. **IntelliSense Support**: Full IDE support with autocomplete and type hints
 7. **Comprehensive Testing**: Full unit test coverage using Vitest
+8. **Executable Examples**: Direct execution of TypeScript files with tsx
 
 ## Type Definitions
 

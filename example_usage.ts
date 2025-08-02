@@ -1,3 +1,5 @@
+#!/usr/bin/env npx tsx
+
 // Example usage of the relationship categories
 import { 
   relationshipCategories, 
