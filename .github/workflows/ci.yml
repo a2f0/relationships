@@ -15,7 +15,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20.x'
+        node-version-file: '.nvmrc'
         cache: 'npm'
         
     - name: Install dependencies
@@ -33,12 +33,3 @@ jobs:
     - name: Run executable example
       run: ./example_usage.ts
       
-    - name: Security audit
-      run: npm audit --audit-level=moderate || echo "Security vulnerabilities found - please review"
-      
-    - name: Verify output
-      run: |
-        echo "✅ Type checking passed"
-        echo "✅ Tests passed"
-        echo "✅ TypeScript examples executed successfully"
-        echo "✅ All CI checks passed" 
