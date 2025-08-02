@@ -31,5 +31,5 @@ jobs:
       run: npm run dev
       
     - name: Run executable example
-      run: ./example_usage.ts
+      run: npx tsx example_usage.ts
       
